@@ -37,7 +37,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   tag: "logo",
                   child: Container(
                     height: 200.0,
-                    child: Image.asset('assets/logo.png'),
+                    child: Image.asset('assets/chat logo.png'),
                   ),
                 ),
               ),
@@ -71,7 +71,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 24.0,
               ),
               RoundedButton(
-                color: Colors.blueAccent,
+                color: Colors.blueGrey,
                 title: "Register",
                 onPressed: () async {
                   setState(() {

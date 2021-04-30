@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 10,
           ),
           Text(
-            "WELCOME TO \n\n Flash Chat App",
+            "WELCOME TO\n\nTeam Chat App",
             style: new TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 30.0, color: kTextColor),
           ),

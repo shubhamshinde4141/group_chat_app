@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:group_chat_app/Constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:image_picker/image_picker.dart';
 
 final _firestore = FirebaseFirestore.instance;
 User loggedUser;
@@ -20,6 +21,11 @@ class _ChatScreenState extends State<ChatScreen> {
   // final _auth = FirebaseAuth.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String messageText;
+  File imageFile;
+  //var picker = ImagePicker();
+  // final ImagePicker _picker = ImagePicker();
+
+  bool isloaded = false;
 
   void getCurrentUser() async {
     //final User user = await _auth.currentUser();
@@ -34,6 +40,15 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  /* Future openGallery() async {
+    var picture = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      imageFile = File(picture.path);
+      isloaded = true;
+      // applymodeltoimage(imageFile);
+    });
+  }*/
+
   @override
   void initState() {
     // TODO: implement initState
@@ -44,28 +59,34 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.yellow[400],
       appBar: AppBar(
         elevation: 0,
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              icon: Icon(
+                Icons.close,
+                color: Colors.black,
+              ),
               onPressed: () {
                 //Implement logout functionality
                 _auth.signOut();
                 Navigator.pop(context);
               }),
         ],
-        title: Text("Group Chat"),
-        backgroundColor: Colors.blue,
+        title: Text(
+          "Group Chat",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.yellow[400],
       ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-            color: Colors.grey[300],
+            color: Colors.blueGrey[200],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,6 +99,16 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    IconButton(
+                        icon: Icon(
+                          Icons.image,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          //Implement logout functionality
+                          // _auth.signOut();
+                          //Navigator.pop(context);
+                        }),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(3.0),
@@ -92,7 +123,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                     ),
                     FlatButton(
-                        color: Colors.lightBlueAccent,
+                        color: Colors.orange[400],
                         shape: CircleBorder(),
                         padding: EdgeInsets.all(10),
                         onPressed: () {
@@ -190,13 +221,13 @@ class MessageBubble extends StatelessWidget {
                     topLeft: Radius.circular(0),
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30)),
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
+            color: isMe ? Colors.yellow : Colors.white,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Text(
                 "$text",
                 style: TextStyle(
-                    fontSize: 15, color: isMe ? Colors.white : Colors.black54),
+                    fontSize: 15, color: isMe ? Colors.black : Colors.black54),
               ),
             ),
           ),

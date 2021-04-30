@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   tag: "logo",
                   child: Container(
                     height: 200.0,
-                    child: Image.asset('assets/logo.png'),
+                    child: Image.asset('assets/chat logo.png'),
                   ),
                 ),
               ),
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24.0,
               ),
               RoundedButton(
-                color: Colors.lightBlue,
+                color: Colors.blueGrey,
                 title: "Log in",
                 onPressed: () async {
                   setState(() {

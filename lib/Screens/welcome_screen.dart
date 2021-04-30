@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:group_chat_app/Components/roundedbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:group_chat_app/Screens/registration_screen.dart';
-//import 'package:group_chat_app/To-Do/page/home_page.dart';
+
 import 'login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -57,15 +57,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: "logo",
                   child: Container(
-                    child: Image.asset('assets/logo.png'),
+                    child: Image.asset('assets/chat logo.png'),
                     height: 60,
                   ),
                 ),
                 TypewriterAnimatedTextKit(
-                  text: ["Flash Chat"],
+                  text: ["Team Chat"],
                   speed: Duration(seconds: 1),
                   textStyle: TextStyle(
-                      fontSize: 45.0,
+                      fontSize: 40.0,
                       fontWeight: FontWeight.w900,
                       color: Colors.black),
                 ),
@@ -75,14 +75,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               height: 48.0,
             ),
             RoundedButton(
-              color: Colors.lightBlue,
-              title: "Log in",
+              color: Colors.blueGrey,
+              title: "Log In",
               onPressed: () {
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
             RoundedButton(
-              color: Colors.blueAccent,
+              color: Colors.blueGrey,
               title: "Register",
               onPressed: () {
                 Navigator.pushNamed(context, RegistrationScreen.id);
