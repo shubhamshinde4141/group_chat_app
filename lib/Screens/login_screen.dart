@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   email = value;
                 },
                 decoration:
-                    kTextFieldDecoration.copyWith(hintText: "Enter your Email"),
+                    kTextFieldDecoration.copyWith(hintText: "Enter your Email ID"),
               ),
               SizedBox(
                 height: 8.0,
